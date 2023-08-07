@@ -32,10 +32,24 @@ if st.button("View Source"):
     yt = YouTube(link)
     st.write("Title: ", yt.title)
     st.write("Views: ", yt.views)
+    st.write(yt.title,'.mp4')
 
 if st.button("Download"):
     yt = YouTube(link)
     yd = yt.streams.get_lowest_resolution()
-    video = yd.download()
-    st.download_button("Download Now", data=video, mime="application/octet-stream")
+    val = yd.download()
+    video_file = open(val,'rb')
+    video_bytes = video_file.read()
+
+    st.video(video_bytes)
+    # st.download_button("Download Now", video)
+    # with open('')
+
+    # with open ("video.mp4","rb") as file:
+    #     btn = st.download_button(
+    #         label="Download",
+    #         data=file,
+    #         file_name="video.mp4",
+    #         mime=
+    #     )
 
