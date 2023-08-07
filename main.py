@@ -36,6 +36,6 @@ if st.button("View Source"):
 if st.button("Download"):
     yt = YouTube(link)
     yd = yt.streams.get_lowest_resolution()
-    file = yd.download()
-    st.download_button("Download Now", file)
+    video = yd.download()
+    st.download_button("Download Now", data=video, mime="application/octet-stream")
 
